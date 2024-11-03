@@ -11,34 +11,64 @@ from crewai_tools import SerperDevTool
 @CrewBase
 class InnoventureCrew():
 	"""Innoventure crew"""
-
+	
 	@agent
-	def researcher(self) -> Agent:
+	def business_metrics_analyst(self) -> Agent:
 		return Agent(
-			config=self.agents_config['researcher'],
+			config=self.agents_config['business_metrics_analyst'],
 			tools=[SerperDevTool()], # Example of custom tool, loaded on the beginning of file
 			llm=LLM(model="ollama/llama3.2", base_url="http://localhost:11434"),
 			verbose=True
 		)
-
+	
 	@agent
-	def reporting_analyst(self) -> Agent:
+	def social_media_analyst(self) -> Agent:
 		return Agent(
-			config=self.agents_config['reporting_analyst'],
+			config=self.agents_config['social_media_analyst'],
+			tools=[SerperDevTool()], # Example of custom tool, loaded on the beginning of file
 			llm=LLM(model="ollama/llama3.2", base_url="http://localhost:11434"),
 			verbose=True
 		)
-
-	@task
-	def research_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['research_task'],
+	
+	@agent
+	def news_trend_analyst(self) -> Agent:
+		return Agent(
+			config=self.agents_config['news_trend_analyst'],
+			tools=[SerperDevTool()], # Example of custom tool, loaded on the beginning of file
+			llm=LLM(model="ollama/llama3.2", base_url="http://localhost:11434"),
+			verbose=True
 		)
-
+	
+	@agent
+	def investment_insights_manager(self) -> Agent:
+		return Agent(
+			config=self.agents_config['investment_insights_manager'],
+			llm=LLM(model="ollama/llama3.2", base_url="http://localhost:11434"),
+			verbose=True
+		)
+	
 	@task
-	def reporting_task(self) -> Task:
+	def business_metrics_task(self) -> Task:
 		return Task(
-			config=self.tasks_config['reporting_task'],
+			config=self.tasks_config['business_metrics_task'],
+		)
+	
+	@task
+	def social_media_task(self) -> Task:
+		return Task(
+			config=self.tasks_config['social_media_task'],
+		)
+	
+	@task
+	def news_trend_task(self) -> Task:
+		return Task(
+			config=self.tasks_config['news_trend_task'],
+		)
+	
+	@task
+	def investment_insights_task(self) -> Task:
+		return Task(
+			config=self.tasks_config['investment_insights_task'],
 			output_file='report.md' #This is the file that will contain the final report
 		)
 
