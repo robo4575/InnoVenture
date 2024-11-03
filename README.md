@@ -3,10 +3,11 @@
 
 ## Things we did
 We came up with an agent framework to model a venture capitalist interacting with an **Investment Insights Manager**. The manager coordinates a team comprising of 3 other members with the job roles of **Business Metrics Analyst**, **Social Media Analyst** and **News Trend Analyst**.  
-The **Business Metrics Analyst** is responsible for providing insights to the Investment Insights Manager about the company's financial trajectory.  
-The **Social Media Analyst** is responsible for providing a clearer picture to the Investment Insights Manager about the company's social media value.  
-The **News Trend Analyst** is responsible for detailing the public image of the startup to the Investment Insights Manager.  
+- The **Business Metrics Analyst** is responsible for providing insights to the Investment Insights Manager about the company's financial trajectory.  
+- The **Social Media Analyst** is responsible for providing a clearer picture to the Investment Insights Manager about the company's social media value.  
+- The **News Trend Analyst** is responsible for detailing the public image of the startup to the Investment Insights Manager.  
 After taking in input from the other 3 roles, the **Investment Insights Manager** creates an analysis report with its investment advice for the venture capitalist.
+
 
 ## Technologies
 We utilised **crewai** for our agent framework and **poetry** to manage the project.  
