@@ -18,7 +18,7 @@ class InnoventureCrew():
 			config=self.agents_config['business_metrics_analyst'],
 			tools=[SerperDevTool()], # Example of custom tool, loaded on the beginning of file
 			llm=LLM(model="ollama/llama3.2", base_url="http://localhost:11434"),
-			verbose=True
+			verbose=False
 		)
 	
 	@agent
@@ -27,7 +27,7 @@ class InnoventureCrew():
 			config=self.agents_config['social_media_analyst'],
 			tools=[SerperDevTool()], # Example of custom tool, loaded on the beginning of file
 			llm=LLM(model="ollama/llama3.2", base_url="http://localhost:11434"),
-			verbose=True
+			verbose=False
 		)
 	
 	@agent
@@ -36,7 +36,7 @@ class InnoventureCrew():
 			config=self.agents_config['news_trend_analyst'],
 			tools=[SerperDevTool()], # Example of custom tool, loaded on the beginning of file
 			llm=LLM(model="ollama/llama3.2", base_url="http://localhost:11434"),
-			verbose=True
+			verbose=False
 		)
 	
 	@agent
@@ -44,7 +44,7 @@ class InnoventureCrew():
 		return Agent(
 			config=self.agents_config['investment_insights_manager'],
 			llm=LLM(model="ollama/llama3.2", base_url="http://localhost:11434"),
-			verbose=True
+			verbose=False
 		)
 	
 	@task
