@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import sys
+from textwrap import dedent
 from innoventure.crew import InnoventureCrew
 
 # This main file is intended to be a way for you to run your
@@ -11,10 +12,28 @@ def run():
     """
     Run the crew.
     """
+    
+    print("## Welcome to InnoVenture")
+    print('-------------------------------')
+    topic = input(
+        dedent("""
+      Which Startup would you like me to evaluate?
+    """))
+    industry = input(
+        dedent("""
+      What is the industry this startup is in?
+    """))
+    yearMonth = input(
+        dedent("""
+      From what month would you like me to do research? (**/****)
+    """))
     inputs = {
-        'topic': 'Shop Genie',
-        'industry': 'technology'
+        'topic': topic,
+        'industry': industry,
+        'date' : yearMonth
     }
+
+    
     InnoventureCrew().crew().kickoff(inputs=inputs)
 
 
@@ -22,9 +41,6 @@ def train():
     """
     Train the crew for a given number of iterations.
     """
-    inputs = {
-        "topic": "Shop Genie"
-    }
     try:
         InnoventureCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
@@ -45,9 +61,6 @@ def test():
     """
     Test the crew execution and returns the results.
     """
-    inputs = {
-        "topic": "German Performance Vehicles"
-    }
     try:
         InnoventureCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
 
