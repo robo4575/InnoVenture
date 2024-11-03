@@ -1,4 +1,4 @@
-from crewai import Agent, Crew, Process, Task
+from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
 
@@ -16,7 +16,8 @@ class InnoventureCrew():
 	def researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config['researcher'],
-			 tools=[SerperDevTool()], # Example of custom tool, loaded on the beginning of file
+			tools=[SerperDevTool()], # Example of custom tool, loaded on the beginning of file
+			llm=LLM(model="ollama/llama3.2", base_url="http://localhost:11434"),
 			verbose=True
 		)
 
@@ -24,6 +25,7 @@ class InnoventureCrew():
 	def reporting_analyst(self) -> Agent:
 		return Agent(
 			config=self.agents_config['reporting_analyst'],
+			llm=LLM(model="ollama/llama3.2", base_url="http://localhost:11434"),
 			verbose=True
 		)
 
