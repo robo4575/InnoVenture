@@ -1,17 +1,55 @@
-research_task:
-  description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is 2024.
-  expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
 
-reporting_task:
+
+business_metrics_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Conduct an in-depth analysis of the business metrics for the startup {topic} and its industry {industry} to evaluate growth potential and stability. 
+    Examine metrics such as revenue growth, employee growth, market size, and CEO experience. 
+    Identify any risks or opportunities based on these metrics to determine the startup’s viability for investment.
+    Given the current date {date}, focus on recent trends and projections.
   expected_output: >
-    A fully fledge reports with the mains topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A report with 5 key points on each metric (revenue growth, employee growth, market size, and CEO experience), including:
+    - Metric value
+    - Significance to the startup's stability and growth
+    - Potential impact on investment risk
+    Provide a Relative Strength score (1–10) for each metric and a short explanation supporting each score.
+  agent: business_metrics_analyst
+
+
+social_media_task:
+  description: >
+    Analyze social media sentiment and engagement for the startup {topic}. Assess public perception by examining recent mentions, engagement levels 
+    (likes, shares, comments), and overall sentiment across major platforms. Identify notable influencers discussing the startup and any relevant trends or controversies.
+    Use the current date {date} to focus on the most recent social sentiment.
+  expected_output: >
+    A summary report with 5 bullet points that includes:
+    - Engagement levels and sentiment analysis (positive/negative)
+    - Significant trends or mentions related to {topic}
+    - Any influencers or key accounts contributing to public perception
+    Provide a sentiment score (1–10) reflecting how the startup is perceived by the public, with an explanation for how these insights may influence investor decisions.
+  agent: social_media_analyst
+
+
+news_trend_task:
+  description: >
+    Evaluate recent news trends and competitor activities impacting the startup {topic} within the {industry} industry. 
+    Focus on identifying market challenges, regulatory changes, and competitor advancements. Analyze how these external factors could affect the startup’s growth potential or risk profile.
+    Given the current date {date}, include recent developments that could influence the startup’s competitive positioning.
+  expected_output: >
+    A report with 5-7 key points covering:
+    - Competitor landscape and recent advancements
+    - Market challenges or obstacles in the industry
+    - Regulatory changes relevant to {topic}
+    Provide an external relative Strength score (1–10) that indicates how these factors may impact the startup's success. Include a brief summary explaining each point's significance to potential investors.
+  agent: news_trend_analyst
+
+investment_insights_task:
+  description: >
+    Oversee the startup analysis process for {topic} and coordinate tasks across all agents. Ensure that each agent delivers 
+    their findings in a structured and actionable format, aligning with the final goal of creating a comprehensive risk index score. 
+    Compile insights from business metrics, social media sentiment, and news trends to make a cohesive recommendation for investors.
+  expected_output: >
+    A comprehensive risk report for {topic}, including:
+    - Summary of stability, market perception, and external risks
+    - Consolidated relative strength score (1–10), with individual scores from each analysis and deep explanation behind each score
+    - Final investment recommendation, based on gathered insights
+  agent: investment_insights_manager
